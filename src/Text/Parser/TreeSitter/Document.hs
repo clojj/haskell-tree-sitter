@@ -1,4 +1,3 @@
-{-# LANGUAGE InterruptibleFFI #-}
 module Text.Parser.TreeSitter.Document where
 
 import Foreign
