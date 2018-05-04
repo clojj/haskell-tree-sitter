@@ -36,8 +36,8 @@ library
                      , vendor/tree-sitter/src/runtime/tree.c
                      , vendor/tree-sitter/src/runtime/utf16.c
                      , vendor/tree-sitter/externals/utf8proc/utf8proc.c
-  cc-options:          -std=c99 -Os
-  ghc-options:         -Wall -fno-warn-name-shadowing -O -j
+  cc-options:          -std=c11 -Os
+  ghc-options:         -Wall -fno-warn-name-shadowing -O -j -optc -Wno-error=unused-command-line-argument
 
 test-suite test
   type:                exitcode-stdio-1.0

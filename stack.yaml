@@ -1,3 +1,6 @@
+apply-ghc-options: everything
+ghc-options:
+  $everything: -optc -Wno-unused-command-line-argument
 flags: {}
 extra-package-dbs: []
 packages:
@@ -14,4 +17,4 @@ packages:
   extra-dep: true
 - location: languages/ruby
   extra-dep: true
-resolver: lts-10.0
+resolver: nightly-2018-04-25
