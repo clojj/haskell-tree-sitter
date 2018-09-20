@@ -2,18 +2,7 @@ flags: {}
 extra-package-dbs: []
 packages:
 - '.'
-- location: languages/go
-  extra-dep: true
-- location: languages/php
-  extra-dep: true
-- location: languages/python
-  extra-dep: true
-- location: languages/typescript
-  extra-dep: true
-- location: languages/json
-  extra-dep: true
-- location: languages/ruby
-  extra-dep: true
-- location: languages/haskell
-  extra-dep: true
-resolver: lts-10.0
+resolver: lts-12.0
+apply-ghc-options: everything
+ghc-options:
+  $everything: -optc -Wno-unused-command-line-argument

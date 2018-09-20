@@ -1,0 +1,27 @@
+#!/bin/bash
+#/ Usage: script/update-tree-sitter
+#/
+#/ Update tree-sitter and all associated tree-sitter-* language submodules.
+
+set -e
+cd $(dirname "$0")/..
+
+for item in $(ls vendor); do
+  pushd $item
+  git checkout master && git pull origin master
+  popd
+done
+
+# CURRENT=$(pwd);
+#
+# script/bootstrap
+#
+# for language in $(ls languages); do
+#   cd languages/$language/vendor/tree-sitter-$language;
+#   echo $(pwd);
+#   git checkout master; git pull origin master;
+#   cd $CURRENT;
+# done
+#
+# cd vendor/tree-sitter;
+# git checkout master; git pull origin master;

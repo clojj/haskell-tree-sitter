@@ -1,5 +1,5 @@
 name:                haskell-tree-sitter
-version:             0.1.0
+version:             0.2.0
 synopsis:            haskell tree-sitter bindings
 description:         Please see README.md
 homepage:            http://github.com/tree-sitter/haskell-tree-sitter#readme
@@ -25,7 +25,17 @@ library
                      , TreeSitter.Language
                      , TreeSitter.Node
                      , TreeSitter.Tree
+                     , TreeSitter.Go
+                     , TreeSitter.Haskell
+                     , TreeSitter.Java
+                     , TreeSitter.JSON
+                     , TreeSitter.PHP
+                     , TreeSitter.Python
+                     , TreeSitter.Ruby
+                     , TreeSitter.TypeScript
   c-sources:           src/bridge.c
+
+                     -- Core tree-sitter runtime
                      , vendor/tree-sitter/externals/utf8proc/utf8proc.c
                      , vendor/tree-sitter/src/runtime/get_changed_ranges.c
                      , vendor/tree-sitter/src/runtime/language.c
@@ -37,8 +47,25 @@ library
                      , vendor/tree-sitter/src/runtime/tree.c
                      , vendor/tree-sitter/src/runtime/tree_cursor.c
                      , vendor/tree-sitter/src/runtime/utf16.c
-  cc-options:          -std=c99 -Os
+
+                     -- Language parsers
+                     -- TODO: realtive rebuild for scanner.cc too
+                     , vendor/tree-sitter-go/src/parser.c
+                     , vendor/tree-sitter-haskell/src/parser.c
+                     , vendor/tree-sitter-haskell/src/scanner.cc
+                     , vendor/tree-sitter-ruby/src/parser.c
+                     , vendor/tree-sitter-ruby/src/scanner.cc
+                     , vendor/tree-sitter-typescript/src/parser.c
+                     , vendor/tree-sitter-typescript/src/scanner.c
+                     , vendor/tree-sitter-python/src/parser.c
+                     , vendor/tree-sitter-python/src/scanner.cc
+                     , vendor/tree-sitter-java/src/parser.c
+                     , vendor/tree-sitter-php/src/parser.c
+                     , vendor/tree-sitter-php/src/scanner.cc
+                     , vendor/tree-sitter-json/src/parser.c
+  cc-options:          -Wall
   ghc-options:         -Wall -fno-warn-name-shadowing -O -j
+  extra-libraries:     stdc++
 
 test-suite test
   type:                exitcode-stdio-1.0
