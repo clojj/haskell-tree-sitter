@@ -49,7 +49,6 @@ library
                      , vendor/tree-sitter/src/runtime/utf16.c
 
                      -- Language parsers
-                     -- TODO: realtive rebuild for scanner.cc too
                      , vendor/tree-sitter-go/src/parser.c
                      , vendor/tree-sitter-haskell/src/parser.c
                      , vendor/tree-sitter-haskell/src/scanner.cc
